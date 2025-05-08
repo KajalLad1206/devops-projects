@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+</head>
+<body>
+  <h1>Edit Profile</h1>
+  
+  <!-- Profile form -->
+  <form id="editProfileForm">
+    <label for="name">Name:</label><br>
+    <input type="hidden" id="userId" value=" 680164c4bfb2589093c328cc" />
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="bio">Bio:</label><br>
+    <textarea id="bio" name="bio" required></textarea><br><br>
+
+    <button type="submit">Save</button>
+  </form>
+
+  <script>
+    // Event listener for the form submission
+    document.getElementById('editProfileForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent page reload on form submission
+
+      // Get form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const bio = document.getElementById('bio').value;
+
+      // Prepare data to be sent to the backend
+      const userData = {
+        name: name,
+        email: email,
+        bio: bio
+      };
+
+      // Send POST request to create the user profile
+      fetch('http://localhost:3000/api/profile', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('User created:', data);
+        alert('User profile created successfully!');
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to create user profile');
+      });
+    });
+  </script>
+</body>
+</html>
