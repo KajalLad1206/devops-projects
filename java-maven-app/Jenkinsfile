@@ -10,9 +10,9 @@ pipeline {
     //     SERVER_CRED = credentials('git-credential') //access git credtial 
     // }
     parameters {
-        string( name: 'VERSION', defaultvalue: '', description:'version to deploy on prod')
-        choice( name: 'VERSION',choices:['1.1','1.2','1.3'], descrition :'')
-        booleanParam(Name:'executeTest',defaultvalue:true, description:'')
+        string( name: 'VERSION', defaultValue: '', description:'version to deploy on prod')
+        choice( name: 'VERSION', choices:['1.1','1.2','1.3'], descrition :'')
+        booleanParam( name: 'executeTest', defaultValue:true, description:'')
     }
    
     stages {
