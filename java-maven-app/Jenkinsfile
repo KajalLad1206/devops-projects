@@ -17,5 +17,10 @@ pipeline {
                 echo 'Deploying an application' 
             }
         }
+        post{
+            always{
+                echo 'Print always'
+            }
+        }
     }
 }
