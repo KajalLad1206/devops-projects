@@ -1,0 +1,10 @@
+Devops/*
+!Devops/Docker/
+Devops/Docker/*
+!Devops/Docker/project-1-nodejs-app-mongo/
+!Devops/Docker/project-2-java-maven-app/
+Devops/Jenkins/*
+
+
+
+
