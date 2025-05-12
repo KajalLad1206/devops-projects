@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy 
 //CODE_CHANGES = getGitChanges()
+def gv
 pipeline {
     agent any 
     // tools{
@@ -16,6 +17,13 @@ pipeline {
     }
    
     stages {
+        stage('init'){
+            steps{
+                script{
+                    gv = load "script.groovy"
+                }
+            }
+        }
         stage('test') {
             //this will used for condtion or expression  when branch is main only that time this stage execute
             // when{
@@ -24,7 +32,7 @@ pipeline {
             //     }
             // }
 
-             when{
+            when{
                 expression{
                     params.executeTest
                 }
@@ -36,7 +44,10 @@ pipeline {
         stage('Build') {            
             steps {
                 //echo "building version{$NEW_VERSION}" 
-                echo 'building an apllication' 
+                script{
+                    gv.buildApp()
+                }
+                
             }
         }
         stage('Deploy') {
