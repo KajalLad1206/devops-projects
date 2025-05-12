@@ -1,10 +1,22 @@
-def buildApp()
+def buildJar()
 {
-    echo 'building an apllication' 
+    echo "building jar.......!"
+    sh 'cd java-maven-app'
+    sh 'mvn clean package'  
 }
-def deployApp()
+def buildImage()
 {
-    echo 'deploying an apllication' 
+    echo "building an image....!"
+    withCredentials([   
+        usernamePassword(credentials:'dockerhub-credential', usernameVariable:USER, passwordVariable:PWD)
+    ])
+            
+    sh 'docker build -t kajallad126/java-maven-app:1.4 .'
+    sh 'echo "$PWD" | docker login -u "$USER"  --password-stdin'
+    sh 'docker push kajallad126/java-maven-app:1.4'
+}
+def deployApp(){
+    echo "deploying an application...!"
 }
 return this
 
