@@ -1,0 +1,73 @@
+#!/usr/bin/env groovy 
+//CODE_CHANGES = getGitChanges()
+def gv
+pipeline {
+    agent any 
+    // tools{
+    //     maven 'Maven-3.9'
+    // }
+    //  enviornment { // used for env variable
+    //     NEW_VERSION ='1.3'
+    //     SERVER_CRED = credentials('git-credential') //access git credtial 
+    // }
+    parameters {
+        string( name: 'VERSION', defaultValue: '', description:'version to deploy on prod')
+        choice( name: 'VERSION', choices:['1.1','1.2','1.3'], description :'')
+        booleanParam( name: 'executeTest', defaultValue:true, description:'')
+    }
+   
+    stages {
+        stage('init'){
+            steps{
+                script {
+                    gv = load "java-maven-app/java-maven-app/script.groovy"
+                }
+            }
+        }
+        stage('test') {
+            //this will used for condtion or expression  when branch is main only that time this stage execute
+            // when{
+            //     expression{
+            //         env.BRANCH_NAME ='main' && CODE_CHANGES == true
+            //     }
+            // }
+
+            when{
+                expression{
+                    params.executeTest
+                }
+            }
+            steps {
+                echo 'test an application' 
+            }
+        }
+        stage('Build') {            
+            steps {
+                //echo "building version{$NEW_VERSION}" 
+                script{
+                    gv.buildApp()
+                }
+                
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying an application'
+               // echo "Deploying with {$SERVER_CRED}"
+               // echo "Deploying with ${params.VERSION}"
+                // this will used the credential and for that we need credential plugin
+                // withCredentials([   
+                //     usernamePassword(credentials:'git-credential', usernameVariable:USER, passwordVariable:PWD)
+                // ])
+                // {
+                //     sh "Some script ${USER} ${PWD}"
+                // }
+            }
+        }
+    }
+        post{
+            always{
+                echo 'Print always'
+            }
+        }
+    }
