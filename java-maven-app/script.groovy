@@ -6,4 +6,5 @@ def deployApp()
 {
     echo 'deploying an apllication' 
 }
-return this;
+return this
+
