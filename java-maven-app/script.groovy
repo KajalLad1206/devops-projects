@@ -7,5 +7,5 @@ def deployApp()
     echo 'deploying an apllication' 
 }
 <<<<<<< HEAD
-return this;
+return this
 
