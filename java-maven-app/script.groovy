@@ -11,7 +11,7 @@ def buildImage()
 {
     echo "building an image....!"
     withCredentials([   
-        usernamePassword(credentials:'dockerhub-credential', usernameVariable:USER, passwordVariable:PWD)
+        usernamePassword(credentials:'dockerhub-credential', usernameVariable:'USER', passwordVariable:'PWD')
     ])
             
     sh 'docker build -t kajallad126/java-maven-app:1.4 .'
