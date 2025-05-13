@@ -1,7 +1,7 @@
 def buildJar()
 {
     echo "building jar.......!"
-    // sh 'cd java-maven-app'
+     sh 'cd java-maven-app'
     // sh 'mvn clean package'  
     dir('java-maven-app') {
         sh 'mvn clean package'
