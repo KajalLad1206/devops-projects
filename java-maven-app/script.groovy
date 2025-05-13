@@ -2,10 +2,10 @@ def buildJar()
 {
     echo "building jar.......!"
      sh 'cd java-maven-app'
-    // sh 'mvn clean package'  
-    dir('java-maven-app') {
-        sh 'mvn clean package'
-    }
+     sh 'mvn clean package'  
+    // dir('java-maven-app') {
+    //     sh 'mvn clean package'
+    // }
 }
 def buildImage()
 {
