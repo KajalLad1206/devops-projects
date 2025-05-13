@@ -19,7 +19,7 @@ def buildImage()
         sh 'docker push kajallad126/java-maven-app:1.4'
     }
 }
-def deployApp(){
+def deployApp() {
     echo "deploying an application...!"
 }
 return this
