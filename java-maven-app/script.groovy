@@ -14,9 +14,9 @@ def buildImage()
     usernamePassword(credentialsId: 'dockerhub-credential', usernameVariable: 'USER', passwordVariable: 'PWD')
     ]) {
         sh 'echo Logging into Docker...'
-        sh 'docker build -t kajallad126/java-maven-app:1.4 java-maven-app/'
+        sh 'docker build -t username/java-maven-app:1.4 java-maven-app/'
         sh 'echo $PWD | docker login -u $USER  --password-stdin'
-        sh 'docker push kajallad126/java-maven-app:1.4'
+        sh 'docker push username/java-maven-app:1.4'
     }
 }
 def deployApp() {
