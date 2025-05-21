@@ -10,7 +10,7 @@ Docker, Node.js, MongoDB
 1. add volumes at the services level
 2. reference the added volumes within the needed services
 3. docker-compose file with volumes
-    - https://github.com/KajalLad1206/Devops/Docker/mongo.yaml
+    - https://github.com/KajalLad1206/devops-projects/blob/main/Docker/project-1-nodejs-app-mongo/4-my-node-app-deploy-on-server-with-docker-volume/mongo.yaml
 4. access the app and make some data changes
     - access node app at localhost:3000
     - or access mongo-express ui at localhost:8080
