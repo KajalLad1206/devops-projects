@@ -60,7 +60,7 @@ Write Docker Compose file to run MongoDB and MongoExpress containers
 
 ### Create Dockerfile for NodeJS app
 1. create a file, 'Dockerfile' in your project's root directory
-    - sample file: https://github.com/KajalLad1206/Devops-practice/Docker/my-node-app/Dockerfile
+    - sample file: Docker/project-1-nodejs-app-mongo/1-my-node-app-build-image-locally/Dockerfile
 2. build the Docker image based on the Dockerfile
  - cmd: `docker build -t [name of image]:[version tag] [directory location]`
     - example: `docker build -t my-app:1.0 .` (the dot (.) is the current directory, should 
