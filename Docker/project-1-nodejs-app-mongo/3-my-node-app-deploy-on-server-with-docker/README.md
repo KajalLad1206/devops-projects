@@ -12,7 +12,7 @@ Docker, Amazon ECR, Node.js, MongoDB, MongoExpress
 ---
 ### Create the Docker Compose File to Remote Server
 1. docker-compose sample:
-    - https://github.com/kajallad/Devops-practice/Docker/my-node-app/mongo.yaml
+    - https://github.com/KajalLad1206/devops-projects/blob/main/Docker/project-1-nodejs-app-mongo/3-my-node-app-deploy-on-server-with-docker/mongo.yaml
 
 ### Login to the Private Docker Registry to Fetch the Image
 1. pull the image from ECR
