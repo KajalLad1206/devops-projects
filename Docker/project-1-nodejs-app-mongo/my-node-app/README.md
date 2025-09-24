@@ -1,9 +1,9 @@
 
-- Demo project : Nodejs + Mongodb
+- Application : Nodejs + Mongodb
 
   https://github.com/KajalLad1206/devops-projects/tree/main/Docker/project-1-nodejs-app-mongo/my-node-app
 
-- project-1 - Containers with Docker
+- Docker Demo project-1 - Containers with Docker
 
   https://github.com/KajalLad1206/devops-projects/tree/main/Docker/project-1-nodejs-app-mongo/1-my-node-app-build-image-locally
 - project-1-2 - Dockerize Nodejs application and push to private Docker registry
